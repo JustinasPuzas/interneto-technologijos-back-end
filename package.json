@@ -1,0 +1,43 @@
+{
+  "name": "interneto-technologijos-back-end",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "nodemon /dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustinasPuzas/interneto-technologijos-back-end.git"
+  },
+  "author": "Justinas Puzas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustinasPuzas/interneto-technologijos-back-end/issues"
+  },
+  "homepage": "https://github.com/JustinasPuzas/interneto-technologijos-back-end#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-flash": "^0.0.2",
+    "express-graphql": "^0.12.0",
+    "express-session": "^1.17.3",
+    "graphql": "^15.8.0",
+    "mongoose": "^6.3.5",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/express-flash": "^0.0.2",
+    "@types/express-session": "^1.17.4",
+    "@types/passport": "^1.0.7",
+    "@types/passport-local": "^1.0.34"
+  }
+}

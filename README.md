@@ -1,1 +1,1 @@
-# interneto-technologijos-back-end
+# Interneto-technologijos-back-end
