@@ -13,7 +13,9 @@ const connect_mongo_1 = __importDefault(require("connect-mongo"));
 const passport_1 = __importDefault(require("passport"));
 const routes_1 = __importDefault(require("./routes"));
 const config_1 = __importDefault(require("./config"));
+const graphQL_1 = __importDefault(require("./graphQL"));
 const express_flash_1 = __importDefault(require("express-flash"));
+const express_graphql_1 = require("express-graphql");
 const app = (0, express_1.default)();
 const PORT = 5000;
 mongoose_1.default.connect("mongodb://localhost/internetoTechnologijos");
@@ -21,7 +23,7 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 const corsSettings = {
     origin: `http://localhost:3000`,
-    credentials: false, // set to true
+    credentials: true,
 };
 app.use((0, cors_1.default)(corsSettings));
 app.use((0, express_flash_1.default)());
@@ -37,8 +39,8 @@ app.use((0, express_session_1.default)({
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
 app.use(`/api`, routes_1.default);
-// app.use('/graphql', expressGraphQL.graphqlHTTP({
-//   schema: MyGraphQLSchema,
-//   graphiql: true,
-// }),)
+app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
+    schema: graphQL_1.default,
+    graphiql: true,
+}));
 app.listen(PORT, () => console.log(`Back-end online on: ${PORT}`));

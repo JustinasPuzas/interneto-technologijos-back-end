@@ -9,8 +9,9 @@ import MongoDbStore from "connect-mongo";
 import passport from "passport";
 import Router from "./routes";
 import config from "./config";
+import MyGraphQLSchema from "./graphQL";
 import flash from "express-flash";
-import expressGraphQL from "express-graphql";
+import { graphqlHTTP } from "express-graphql";
 const app = express();
 const PORT = 5000;
 
@@ -22,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 const corsSettings = {
   origin: `http://localhost:3000`,
 
-  credentials: false, // set to true
+  credentials: true,
 };
 
 app.use(cors(corsSettings));
@@ -46,10 +47,10 @@ app.use(passport.session());
 
 app.use(`/api`, Router);
 
-// app.use('/graphql', expressGraphQL.graphqlHTTP({
-//   schema: MyGraphQLSchema,
-//   graphiql: true,
-// }),)
+app.use('/graphql', graphqlHTTP({
+  schema: MyGraphQLSchema,
+  graphiql: true,
+}),)
 
 app.listen(PORT, () =>
   console.log(`Back-end online on: ${PORT}`)
