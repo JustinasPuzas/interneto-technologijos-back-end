@@ -38,9 +38,9 @@ app.use((0, express_session_1.default)({
 }));
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
-app.use(`/api`, routes_1.default);
 app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
     schema: graphQL_1.default,
     graphiql: true,
 }));
+app.use(`/api`, routes_1.default);
 app.listen(PORT, () => console.log(`Back-end online on: ${PORT}`));

@@ -1,40 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const graphql_1 = require("graphql");
-const core_1 = require("../types/core");
+const userMutation_1 = __importDefault(require("./userMutation"));
+const noteMutation_1 = __importDefault(require("./noteMutation"));
 const RootMutation = new graphql_1.GraphQLObjectType({
-    name: "RootMutation",
-    fields: {
-        updateUserName: {
-            type: core_1.UserType,
-            args: {
-                userName: { type: graphql_1.GraphQLString },
-                email: { type: graphql_1.GraphQLString },
-                password: { type: graphql_1.GraphQLString },
-            },
-            resolve(parent, args) {
-            }
-        },
-        updatePassword: {
-            type: core_1.UserType,
-            args: {
-                userName: { type: graphql_1.GraphQLString },
-                email: { type: graphql_1.GraphQLString },
-                password: { type: graphql_1.GraphQLString },
-            },
-            resolve(parent, args) {
-            }
-        },
-        updateEmail: {
-            type: core_1.UserType,
-            args: {
-                userName: { type: graphql_1.GraphQLString },
-                email: { type: graphql_1.GraphQLString },
-                password: { type: graphql_1.GraphQLString },
-            },
-            resolve(parent, args) {
-            }
-        }
-    }
+    name: "mutation",
+    fields: Object.assign(Object.assign({}, userMutation_1.default), noteMutation_1.default),
 });
 exports.default = RootMutation;

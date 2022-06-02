@@ -45,12 +45,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(`/api`, Router);
-
 app.use('/graphql', graphqlHTTP({
   schema: MyGraphQLSchema,
   graphiql: true,
 }),)
+
+app.use(`/api`, Router);
 
 app.listen(PORT, () =>
   console.log(`Back-end online on: ${PORT}`)
