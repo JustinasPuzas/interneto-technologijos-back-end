@@ -13,6 +13,7 @@ const noteQuery: graphql.Thunk<graphql.GraphQLFieldConfigMap<any, any>> = {
     args: {},
     async resolve(parent, args, request) {
       if (!request.user) return null;
+      
       const notes = await noteDb.find({ ownerId: request.user.id });
       return notes;
     },
